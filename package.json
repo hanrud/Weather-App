@@ -22,6 +22,9 @@
     "nodemon": "1.11.*"
   },
   "dependencies": {
+    "angular": "1.5.11",
+    "angular-resource": "1.5.11",
+    "angular-route": "1.5.11",
     "bootstrap": "3.3.7"
   }
 }
