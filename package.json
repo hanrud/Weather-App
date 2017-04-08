@@ -1,0 +1,27 @@
+{
+  "name": "wheather-app",
+  "version": "1.0.0",
+  "description": "Weather app",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hanrud/Wheather-App.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/hanrud/Wheather-App/issues"
+  },
+  "homepage": "https://github.com/hanrud/Wheather-App#readme",
+  "devDependencies": {
+    "express": "4.15.*",
+    "nodemon": "1.11.*"
+  },
+  "dependencies": {
+    "bootstrap": "3.3.7"
+  }
+}
