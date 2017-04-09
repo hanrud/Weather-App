@@ -62,7 +62,23 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$log', '$ro
 
     }]);
 
-//Directives
-
+//directives
+weatherApp.directive('weatherReport', function () {
+    return {
+        restrict: 'E',
+        templateUrl: 'directives/weather-report.html',
+        replace: true,
+        scope: {
+            // '<' one-way lub {{ ::przed }} w html
+            // '=' two-way data binding
+            // '&' function/expression
+            //'@'  one-way w angularze < 1.5
+            weatherDay: '<',
+            convertDate: '&',
+            convertToCelsius: '&',
+            dateFormat: '<'
+        }
+    }
+});
 
 
