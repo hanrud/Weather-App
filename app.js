@@ -34,15 +34,15 @@ weatherApp.controller('homeController', ['$scope', 'cityService',
         })
     }]);
 
-weatherApp.controller('forecastController', ['$scope', '$resource', 'cityService',
-    function ($scope, $resource, cityService) {
+weatherApp.controller('forecastController', ['$scope', '$resource', '$log', 'cityService',
+    function ($scope, $resource, $log, cityService) {
         var weatherApi = $resource('http://api.openweathermap.org/data/2.5/forecast/daily');
         $scope.weatherResult = weatherApi.get({
             q: 'Gdansk',
             cnt: 2,
             appid: '585222553e6b3dc14840755cff27db02'
-        }).$promise.then(function (data) {
-            console.log(data);
+        }, function (res) {
+            return res;
         });
 
         $scope.city = cityService.city;
