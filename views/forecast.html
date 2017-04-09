@@ -4,10 +4,10 @@ Forecast for {{ city }}
         <div class="col-md-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
-                    <h4 class="panel-title">{{ w.dt }}</h4>
+                    <h4 class="panel-title">{{ convertDate(w.dt) | date: 'yyyy-MM-dd' }}</h4>
                 </div>
                 <div class="panel-body">
-                    Daytime temperature: {{ w.temp.day }}
+                    Daytime temperature: {{ convertToCelsius(w.temp.day) }} &#176;C
                 </div>
             </div>
         </div>

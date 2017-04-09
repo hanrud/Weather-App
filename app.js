@@ -44,8 +44,15 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$log', 'cit
         }, function (res) {
             return res;
         });
-
         $scope.city = cityService.city;
+
+        $scope.convertDate = function (data) {
+            return new Date(data * 1000);
+        };
+
+        $scope.convertToCelsius = function (data) {
+            return (data - 273.15).toFixed(1);
+        };
     }]);
 
 
