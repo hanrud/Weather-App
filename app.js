@@ -17,6 +17,10 @@ weatherApp.config(['$routeProvider', function ($routeProvider) {
             templateUrl: '/views/forecast.html',
             controller: 'forecastController'
         })
+        .when('/forecast/:days', {
+            templateUrl: '/views/forecast.html',
+            controller: 'forecastController'
+        })
 }]);
 
 
@@ -34,17 +38,19 @@ weatherApp.controller('homeController', ['$scope', 'cityService',
         })
     }]);
 
-weatherApp.controller('forecastController', ['$scope', '$resource', '$log', 'cityService',
-    function ($scope, $resource, $log, cityService) {
+weatherApp.controller('forecastController', ['$scope', '$resource', '$log', '$routeParams','cityService',
+    function ($scope, $resource, $log, $routeParams, cityService) {
+        $scope.city = cityService.city;
+        $scope.days =  $routeParams.days || 2;
+
         var weatherApi = $resource('http://api.openweathermap.org/data/2.5/forecast/daily');
         $scope.weatherResult = weatherApi.get({
             q: 'Gdansk',
-            cnt: 2,
+            cnt: $scope.days,
             appid: '585222553e6b3dc14840755cff27db02'
         }, function (res) {
             return res;
         });
-        $scope.city = cityService.city;
 
         $scope.convertDate = function (data) {
             return new Date(data * 1000);
@@ -53,6 +59,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$log', 'cit
         $scope.convertToCelsius = function (data) {
             return (data - 273.15).toFixed(1);
         };
+
     }]);
 
 
