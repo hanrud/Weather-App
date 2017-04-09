@@ -62,4 +62,7 @@ weatherApp.controller('forecastController', ['$scope', '$resource', '$log', '$ro
 
     }]);
 
+//Directives
+
+
 
