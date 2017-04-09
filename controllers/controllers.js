@@ -13,7 +13,7 @@ angular.module('weatherApp').controller('forecastController', ['$scope', '$resou
 
         var weatherApi = $resource('http://api.openweathermap.org/data/2.5/forecast/daily');
         $scope.weatherResult = weatherApi.get({
-            q: 'Gdansk',
+            q: $scope.city,
             cnt: $scope.days,
             appid: '585222553e6b3dc14840755cff27db02'
         }, function (res) {
